@@ -59,7 +59,6 @@ const colorTexture = textureLoader.load('/public/assets/textures/checkerboard-8x
 // colorTexture.center = new THREE.Vector2(.5, .5);
 // colorTexture.rotation = Math.PI / 4;
 
-colorTexture.generateMipmaps = false;
 
 // 缩小滤镜 规则设置：清晰锐利
 // LinearMipmapNearestFilter 近清晰，远模糊
@@ -69,6 +68,11 @@ colorTexture.generateMipmaps = false;
 
 // 放大滤镜
 colorTexture.magFilter = THREE.NearestFilter;
+
+
+// 禁用生成 禁止生成 Mipmaps
+// 缩小过滤和放大过滤都会默认为 NearestFilter。
+colorTexture.generateMipmaps = false;
 
 const cubeMesh = new THREE.Mesh(
   new THREE.BoxGeometry(1, 1, 1),
