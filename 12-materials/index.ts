@@ -31,7 +31,6 @@ const roughnessTexture = textureLoader.load('/public/assets/textures/door/roughn
 const normalTexture = textureLoader.load('/public/assets/textures/door/normal.jpg');
 
 
-
 // ### 基础网格材质
 // const material = new THREE.MeshBasicMaterial();
 // material.map = colorTexture;
@@ -46,7 +45,6 @@ const normalTexture = textureLoader.load('/public/assets/textures/door/normal.jp
 // 设置纹理贴图的 面 （正面和背面）默认只贴正面，正法向面
 // 一般vr或3d看房，应该设置为 THREE.BackSide，贴里面
 // material.side = THREE.DoubleSide; // 双面都贴
-
 
 
 // ### 法线网格材质
@@ -122,6 +120,7 @@ material.alphaMap = alphaTexture;
 material.transparent = true;
 
 // 环境贴图
+// 在几何体上用于反射出周围环境的一种纹理贴图
 // const envMapTexture = new THREE.CubeTextureLoader()
 //   .setPath('/public/assets/textures/environmentMaps/0/')
 //   .load(['px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg'])

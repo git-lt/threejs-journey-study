@@ -76,3 +76,27 @@ Clearcoat: 有些类似于车漆，碳纤，被水打湿的表面的材质需要
 
 
 高级光线反射: 为非金属材质提供了更多更灵活的光线反射。
+
+
+## Light
+
+灯光会非常消耗性能，应尽量减少灯光使用
+
+可投射阴影的灯光
+
+- 平行光：DirectionalLight
+- 点光源：PointLight
+- 聚光灯：SpotLight
+
+影响整体的灯光
+
+- 环境光：AmbientLight
+- 半球光：HemisphereLight
+- 平行光：DirectionalLight
+
+### Baking 烘焙光照
+原理是将光照烘焙到贴图纹理(Texture)中，这个过程可以在 3D 建模软件中实现。但不足的是，不能移动光线，因为根本没有光，都是再贴图纹理中
+
+
+
+
