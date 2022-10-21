@@ -20,11 +20,19 @@ const canvas = document.querySelector('canvas.webgl') as HTMLCanvasElement;
 // Scene
 const scene = new THREE.Scene();
 
+const loadingMananger = new THREE.LoadingManager();
+
+loadingMananger.onLoad = () => {
+  const lodingEl = document.querySelector('#loading') as HTMLDivElement;
+  lodingEl.style.opacity = '0';
+  setTimeout(() => lodingEl.style.display = 'none', 300)
+}
+
 const parameters = {
   color: '#FFF59D'
 }
 
-const textureLoader = new THREE.TextureLoader();
+const textureLoader = new THREE.TextureLoader(loadingMananger);
 const gradientTexture = textureLoader.load('https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a9dbb4287414cf99f3c5ecae9864914~tplv-k3u1fbpfcp-zoom-1.image')
 gradientTexture.magFilter = THREE.NearestFilter;
 
