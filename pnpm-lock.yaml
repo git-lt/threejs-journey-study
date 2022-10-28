@@ -6,6 +6,7 @@ specifiers:
   '@types/stats.js': ^0.17.0
   '@types/three': ^0.144.0
   cannon-es: ^0.20.0
+  cannon-es-debugger: ^1.0.0
   dat.gui: ^0.7.9
   gsap: ^3.11.3
   lil-gui: ^0.17.0
@@ -16,6 +17,7 @@ specifiers:
 
 dependencies:
   cannon-es: 0.20.0
+  cannon-es-debugger: 1.0.0_cannon-es@0.20.0+three@0.145.0
   dat.gui: 0.7.9
   gsap: 3.11.3
   lil-gui: 0.17.0
@@ -78,6 +80,20 @@ packages:
   /@types/webxr/0.5.0:
     resolution: {integrity: sha512-IUMDPSXnYIbEO2IereEFcgcqfDREOgmbGqtrMpVPpACTU6pltYLwHgVkrnYv0XhWEcjio9sYEfIEzgn3c7nDqA==}
     dev: true
+
+  /cannon-es-debugger/1.0.0_cannon-es@0.20.0+three@0.145.0:
+    resolution: {integrity: sha512-sE9lDOBAYFKlh+0w+cvWKwUhJef8HYnUSVPWPL0jD15MAuVRQKno4QYZSGxgOoJkMR3mQqxL4bxys2b3RSWH8g==}
+    peerDependencies:
+      cannon-es: 0.x
+      three: 0.x
+      typescript: '>=3.8'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      cannon-es: 0.20.0
+      three: 0.145.0
+    dev: false
 
   /cannon-es/0.20.0:
     resolution: {integrity: sha512-eZhWTZIkFOnMAJOgfXJa9+b3kVlvG+FX4mdkpePev/w/rP5V8NRquGyEozcjPfEoXUlb+p7d9SUcmDSn14prOA==}
