@@ -98,5 +98,66 @@ Clearcoat: 有些类似于车漆，碳纤，被水打湿的表面的材质需要
 原理是将光照烘焙到贴图纹理(Texture)中，这个过程可以在 3D 建模软件中实现。但不足的是，不能移动光线，因为根本没有光，都是再贴图纹理中
 
 
+### 真实的物理效果
+
+1. 设置环境贴图
+2. 开启阴影
+3. 渲染器开启正确的光照模式 `renderer.physicallyCorrectLights = true`
+4. 渲染器输入编码设置 `renderer.outputEncoding = THREE.sRGBEncoding`
+5. 环境纹理编码设置 `environmentMap.encoding = THREE.sRGBEncoding`
+6. 设置色调映射模式 `renderer.toneMapping = THREE.ReinhardToneMapping`
+7. 设置色调映射曝光级别 `renderer.toneMappingExposure = 2.5`
+8. 开启抗锯齿 
+
+
+开启阴影
+
+渲染器
+
+```js
+renderer.shadowMap.enabled = true
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
+```
+
+灯光
+
+```js
+directionLight.castShadow = true
+directionLight.shadow.camera.far = 15
+directionLight.shadow.mapSize.set(1024, 1024)
+directionLight.shadow.normalBias = 0.05
+```
+
+物体
+
+```js
+mesh.castShadow = true
+mesh.receiveShadow = true
+```
+
+
+开启抗锯齿 
+
+```js
+// Renderer
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias: true,
+})
+```
+
+给材质设置环境贴图
+
+```js
+scene.traverse((child) => {
+  if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+    console.log(child)
+    child.material.envMap = environmentMap
+    child.material.envMapIntensity = debugObject.envMapIntensity
+  }
+})
+```
+
+
 
 

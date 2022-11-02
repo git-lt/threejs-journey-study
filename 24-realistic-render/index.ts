@@ -41,6 +41,7 @@ directionalLight.shadow.camera.far = 20;
 directionalLight.shadow.camera.right = 10;
 directionalLight.shadow.camera.bottom = -10;
 directionalLight.shadow.camera.left = -10
+directionalLight.shadow.normalBias = .05;
 scene.add(directionalLight);
 
 const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
@@ -137,7 +138,6 @@ gltfLoader.load('/public/assets/myModels/hamburger.glb', gltf => {
 //   gltf.scene.position.set(0, -3.4, 0)
 //   gltf.scene.rotation.set(0, Math.PI * .5, 0)
 //   scene.add(gltf.scene);
-
 //   updateAllMaterials();
 // })
 
