@@ -106,16 +106,7 @@ scene.background = environmentMap;
 /**
  * Models
  */
-// dracoLoader.setDecoderPath('/public/assets/draco/');
-// dracoLoader.preload();
-// gltfLoader.setDRACOLoader(dracoLoader);
-// gltfLoader.load('/public/assets/myModels/hamburger.glb', gltf => {
-//   console.log(gltf);
-//   gltf.scene.scale.set(.4, .4, .4);
-//   scene.add(gltf.scene);
-// })
-
-const updateAllMaterials = () => {
+ const updateAllMaterials = () => {
   scene.traverse(child => {
     if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial){
       child.material.envMap = environmentMap;
@@ -126,14 +117,29 @@ const updateAllMaterials = () => {
   })
 }
 
-gltfLoader.load('/public/assets/models/FlightHelmet/glTF/FlightHelmet.gltf', gltf => {
-  gltf.scene.scale.set(8, 8, 8);
-  gltf.scene.position.set(0, -3.4, 0)
+// 汉堡
+dracoLoader.setDecoderPath('/public/assets/draco/');
+dracoLoader.preload();
+gltfLoader.setDRACOLoader(dracoLoader);
+gltfLoader.load('/public/assets/myModels/hamburger.glb', gltf => {
+  console.log(gltf);
+  gltf.scene.scale.set(.4, .4, .4);
+  gltf.scene.position.set(0, -2.5, 0)
   gltf.scene.rotation.set(0, Math.PI * .5, 0)
   scene.add(gltf.scene);
-
   updateAllMaterials();
 })
+
+
+// 飞行员头盔
+// gltfLoader.load('/public/assets/models/FlightHelmet/glTF/FlightHelmet.gltf', gltf => {
+//   gltf.scene.scale.set(8, 8, 8);
+//   gltf.scene.position.set(0, -3.4, 0)
+//   gltf.scene.rotation.set(0, Math.PI * .5, 0)
+//   scene.add(gltf.scene);
+
+//   updateAllMaterials();
+// })
 
 
 /**
